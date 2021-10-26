@@ -4,7 +4,8 @@ version: '2'
 services:
 
   drupal:
-    image: drupal:8.8.2
+    image: custom-drupal
+    build: .
     ports:
       - 8080:80
     volumes:
@@ -21,9 +22,12 @@ services:
     image: postgres:12.1
     environment:
        - POSTGRES_PASSWORD=mypasswd
+    volumes:
+       - drupal-data:/var/lib/postgresql/data
     restart: always
 
 volumes:
+  drupal-data:
   drupal-modules:
   drupal-profiles:
   drupal-sites:
