@@ -16,7 +16,7 @@ Here is a basic diagram of how the 5 services will work:
     - on frontend network
     - 2+ replicas of this container
 
-docker service create --name vote -p 80:80 --network frontend --replica 2 bretfisher/examplevotingapp_vote
+docker service create --name vote -p 80:80 --network frontend --replicas 2 bretfisher/examplevotingapp_vote
 
 - redis
     - redis:3.2
@@ -25,7 +25,7 @@ docker service create --name vote -p 80:80 --network frontend --replica 2 bretfi
     - on frontend network
     - 1 replica NOTE VIDEO SAYS TWO BUT ONLY ONE NEEDED
 
-docker service create --name redi--network frontend --replica 1 redis:3.2
+docker service create --name redi--network frontend --replicas 1 redis:3.2
 
 - worker
     - bretfisher/examplevotingapp_worker
@@ -53,4 +53,4 @@ docker service create --name db --network backend --mount type=volume,source=db-
     - on backend network
     - 1 replica
 
-docker service create --name result --network backend -p 5001:80 
+docker service create --name result --network backend -p 5001:80 retfisher/examplevotingapp_result
