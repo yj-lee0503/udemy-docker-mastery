@@ -43,7 +43,8 @@ docker service create --name worker --network frontend --network backend bretfis
     - 1 replica
     - remember set env for password-less connections -e POSTGRES_HOST_AUTH_METHOD=trust
 
-docker service create --name db --network backend --mount type=volume,source=db-data,target=/var/lib/postgresql/data postgres:9.4
+docker service create --name db --network backend -e POSTGRES_HOST_AUTH_METHOD=trust --mount type=volume,source=db-data,target=/var/lib/postgresql/data postgres:9.4
+
 
 - result
     - bretfisher/examplevotingapp_result
