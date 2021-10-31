@@ -25,7 +25,7 @@ docker service create --name vote -p 80:80 --network frontend --replicas 2 bretf
     - on frontend network
     - 1 replica NOTE VIDEO SAYS TWO BUT ONLY ONE NEEDED
 
-docker service create --name redi--network frontend --replicas 1 redis:3.2
+docker service create --name redis --network frontend --replicas 1 redis:3.2
 
 - worker
     - bretfisher/examplevotingapp_worker
@@ -53,4 +53,4 @@ docker service create --name db --network backend --mount type=volume,source=db-
     - on backend network
     - 1 replica
 
-docker service create --name result --network backend -p 5001:80 retfisher/examplevotingapp_result
+docker service create --name result --network backend -p 5001:80 bretfisher/examplevotingapp_result
